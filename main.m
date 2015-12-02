@@ -15,10 +15,11 @@ for i = 1:size(lrect)
     %hold on
     b = characters(c);
     for p = 1:size(b,1)
-        descriptors(imcrop(c,b(p,:)));
+        cwindow = imcrop(c,b(p,:));
+        descriptors(cwindow);
         %rectangle('position', b(p,:), 'Edgecolor', 'r') 
-        %imshow(b(p,:))
-        %pause
+        imshow(cwindow)
+        pause
     end
     %hold off
 end

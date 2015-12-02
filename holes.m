@@ -5,7 +5,8 @@ function[ho] = holes(img)
     g = graythresh(im);
     imb = im2bw(im,g);
     imb = imclearborder(imb);
-    %imshow (img)
+    %imshow (imb)
+    %pause
     %hold on
 
     r = regionprops(imb,'boundingbox');
@@ -14,10 +15,10 @@ function[ho] = holes(img)
     j = 1;
     for i = 1:size(a,1)        
       if a(i, 4) >= (h*0.1) && a(i, 3) >= (w*0.1)
-          rectangle('position', a(i,:), 'Edgecolor', 'r') 
+          %rectangle('position', a(i,:), 'Edgecolor', 'r') 
           ho = ho + 1;
       end
     end
     
     %pause
-    %hold off
+    %hold offs

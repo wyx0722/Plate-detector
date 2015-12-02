@@ -10,6 +10,9 @@ function[b] = characters(img)
     imb(:,:) = not (imb(:,:));
     imb = imclearborder(imb);
     
+    %imshow(imb)
+    %pause
+    
     r = regionprops(imb,'boundingbox');
     a = cat(1, r.BoundingBox);
     

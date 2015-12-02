@@ -8,6 +8,6 @@ function[] = descriptors(img)
     imshow(imb)
     pause
     %}
-    holes(img)
+    holes(img);
     
     %getcorners(img);
