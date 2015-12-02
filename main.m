@@ -2,10 +2,11 @@ clc
 clear all
 close all
 
-img = imread('0945HVM.jpg');
+img = imread('examples/5406CWR.jpg');
 
 lrect = window(img)
 
+tb = getTreeBagger;
 
 
 for i = 1:size(lrect)
@@ -16,9 +17,10 @@ for i = 1:size(lrect)
     b = characters(c);
     for p = 1:size(b,1)
         cwindow = imcrop(c,b(p,:));
-        descriptors(cwindow);
+        %descriptors(cwindow)
+        [pred,prob] = predict(tb,descriptors(cwindow))
         %rectangle('position', b(p,:), 'Edgecolor', 'r') 
-        imshow(cwindow)
+        %imshow(cwindow)
         pause
     end
     %hold off
