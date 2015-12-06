@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-img = imread('examples/5406CWR.jpg');
+img = imread('examples/9935GLL.jpg');
 
 lrect = window(img)
 
