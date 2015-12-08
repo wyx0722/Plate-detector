@@ -1,0 +1,14 @@
+function[imb] = platebin(img)
+    im = rgb2gray(img);
+    g = graythresh(im);
+    ima = im2bw(im,0.5);
+    imc = im2bw(im,g);
+    
+    imshow(imc)
+    pause
+    imaux = imopen(imb, strel('square', 1));
+    imshow(ima)
+    pause
+    
+    imb = max(ima(:,:),imc(:,:));
+end
