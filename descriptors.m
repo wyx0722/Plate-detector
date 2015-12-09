@@ -6,3 +6,4 @@ function[output] = descriptors(img)
     d4 = solidity(img);
     d5 = vskel(img);
     output = horzcat(d1,d2,d3,d4,d5);
+end

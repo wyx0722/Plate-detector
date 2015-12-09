@@ -18,7 +18,10 @@ for i = 1:size(lrect)
     for p = 1:size(b,1)
         cwindow = imcrop(c,b(p,:));
         %descriptors(cwindow)
-        [pred,prob] = predict(tb,descriptors(cwindow))
+        [pred,prob] = predict(tb,descriptors(cwindow));
+        pred
+        prob
+        prediction = formatPredict(p, prob)
         %rectangle('position', b(p,:), 'Edgecolor', 'r') 
         imshow(cwindow)
         pause

@@ -9,6 +9,7 @@ function[c] = getTreeBagger()
   for p = 1:30
       %index(p)
       cwindow = imcrop(jc,b(p,:));
+      imshow(cwindow);
       aux = descriptors(cwindow);
       desc(p,:) = aux;
   end

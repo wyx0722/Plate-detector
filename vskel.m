@@ -7,8 +7,6 @@ function count = vskel(img)
     imb = imclearborder(~imb);
     %imb = imopen(imb, strel('square', 3)); 
     
-    imshow(imb)
-
     skel = bwmorph(imb, 'skel', Inf);
 
     %imshow(skel);
