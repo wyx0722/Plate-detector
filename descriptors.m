@@ -5,6 +5,5 @@ function[output] = descriptors(img)
     d3 = vertices(img);
     d4 = solidity(img);
     d5 = vskel(img);
-    h = HOG(img);
-    size(h')
-    output = horzcat(d1,d2,d3,d4,d5,h');
+    h = HOG(img)';
+    output = horzcat(d1,d2,d3,d4,d5,h);
