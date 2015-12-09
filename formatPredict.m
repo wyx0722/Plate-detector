@@ -7,14 +7,14 @@ function[output] = formatPredict(i, prob)
         for outindex = 1:10
             if prob(outindex) >= scoreMax
                 maxindex = outindex;
-                scoreMax = prob(outindex)
+                scoreMax = prob(outindex);
             end
         end    
     else 
         for outindex = 11:30
             if prob(outindex) >= scoreMax
                 maxindex = outindex;
-                scoreMax = prob(outindex)
+                scoreMax = prob(outindex);
             end
         end    
     end

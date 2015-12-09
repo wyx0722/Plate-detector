@@ -15,7 +15,7 @@ function[c] = getTreeBagger()
   end
   
     
-  c = TreeBagger(100,desc,index);
+  c = TreeBagger(200,desc,index);
   
   %predict(c,descriptors(imread('letters/c.png')))
   

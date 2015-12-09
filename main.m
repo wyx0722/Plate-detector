@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-img = imread('examples/0945HVM.jpg');
+img = imread('examples/3685HDP.jpg');
 
 lrect = window(img)
 
@@ -19,8 +19,6 @@ for i = 1:size(lrect)
         cwindow = imcrop(c,b(p,:));
         %descriptors(cwindow)
         [pred,prob] = predict(tb,descriptors(cwindow));
-        pred
-        prob
         prediction = formatPredict(p, prob)
         %rectangle('position', b(p,:), 'Edgecolor', 'r') 
         imshow(cwindow)
