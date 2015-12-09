@@ -23,7 +23,7 @@ end
 %}
 
 %{
-img = imread('examples/5134FFJ.jpg');
+img = imread('examples/7365CDF.jpg');
 lrect = window(img);  
 
 for i = 1:size(lrect)

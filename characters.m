@@ -31,7 +31,7 @@ function[b] = characters(img)
             perc = sum(cp(:))/(ww*hh);
             %(a(i, 3)*3) >= a(i, 4)
             
-            if (ww/hh) < 0.40
+            if (ww/hh) < 0.3
                 hal = cp(:,1:(ww/2));
                 har = cp(:,(ww/2):end);
                 [hr wr] = size(har);
