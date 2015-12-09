@@ -1,5 +1,5 @@
 function[c] = getTreeBagger()
-  jc = imread('examples/test.jpg');
+  jc = imread('examples/special/test.jpg');
   b = characters(jc);
   
   %desc = zeros(30,13);
@@ -16,7 +16,7 @@ function[c] = getTreeBagger()
   end
   
     
-  c = TreeBagger(200,desc,index);
+  c = TreeBagger(100,desc,index);
   
   %predict(c,descriptors(imread('letters/c.png')))
   

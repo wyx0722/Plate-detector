@@ -8,22 +8,22 @@ for file = files'
     for i = 1:size(lrect)
         c = imcrop(img,lrect(i,:));
         b = characters(c);
-        %figure, title(file.name)
         if (size(b,1) ~= 0)
-            imshow(c)
-            hold on
+            %figure, title(file.name)
+            imshow(platebin(c,3))
+            %hold on
             for p = 1:size(b,1)
                 rectangle('position', b(p,:), 'Edgecolor', 'r') 
             end
             hold off
-            pause(1)
+            pause
         end
     end    
 end
 %}
 
 %{
-img = imread('examples/9211GMB.jpg');
+img = imread('examples/5134FFJ.jpg');
 lrect = window(img);  
 
 for i = 1:size(lrect)
@@ -43,7 +43,7 @@ end
 c = imread('fail.jpg');
 b = characters(c);
 figure
-imshow(c);
+imshow(platebin(c,2));
 hold on
 for p = 1:size(b,1)
     rectangle('position', b(p,:), 'Edgecolor', 'r') 

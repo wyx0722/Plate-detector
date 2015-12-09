@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-img = imread('examples/9935GLL.jpg');
+img = imread('examples/0945HVM.jpg');
 
 lrect = window(img)
 
@@ -20,7 +20,7 @@ for i = 1:size(lrect)
         %descriptors(cwindow)
         [pred,prob] = predict(tb,descriptors(cwindow))
         %rectangle('position', b(p,:), 'Edgecolor', 'r') 
-        %imshow(cwindow)
+        imshow(cwindow)
         pause
     end
     %hold off
