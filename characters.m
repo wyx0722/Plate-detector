@@ -31,14 +31,14 @@ function[b] = characters(img)
             perc = sum(cp(:))/(ww*hh);
             %(a(i, 3)*3) >= a(i, 4)
             
-            if (ww/hh) < 0.30
+            if (ww/hh) < 0.40
                 hal = cp(:,1:(ww/2));
                 har = cp(:,(ww/2):end);
                 [hr wr] = size(har);
                 whr = (hr*wr);
                 per = sum(har(:))/whr;
                 pel = sum(hal(:))/whr;
-                if (per < 0.85) && (pel < 0.35)
+                if (per < 0.90) && (pel < 0.35)
                     b(j, :) = [(a(i,1)-1) (a(i,2)-1) (a(i,3)+2) (a(i,4)+2)];
                     j = j + 1;     
                 end
@@ -47,6 +47,7 @@ function[b] = characters(img)
                 b(j, :) = [(a(i,1)-1) (a(i,2)-1) (a(i,3)+2) (a(i,4)+2)];
                 j = j + 1;
             end
+            
         end      
     end
     
