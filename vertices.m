@@ -1,14 +1,17 @@
+%Get the number of vertices of the img skeleton
 function num = vertices(img)
     %img = imread('letters/B.png');
 
     im = rgb2gray(img);
     g = graythresh(im);
-    imb = im2bw(im,g);
-    imb = imclearborder(~imb);
+    imb = ~im2bw(im,g);
+    %imb = imclearborder(imb);
     %imb = imopen(imb, strel('square', 3)); 
-
-    skel = bwmorph(imb, 'skel', Inf);
-    
+    skel = bwmorph(imb, 'thin', 15);
+    skel = imclearborder(skel);
+    skel = bwmorph(bwareaopen(skel, 10), 'thin', Inf);
+    imshow(skel)
+    pause
     [w, h] = size(skel);
     hh = round(h/2);
     ww = round(w/2);

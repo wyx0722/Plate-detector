@@ -3,11 +3,13 @@ function count = vskel(img)
 
     im = rgb2gray(img);
     g = graythresh(im);
-    imb = im2bw(im,g);
-    imb = imclearborder(~imb);
+    imb = ~im2bw(im,g);
+    %imb = imclearborder(~imb);
     %imb = imopen(imb, strel('square', 3)); 
     
-    skel = bwmorph(imb, 'skel', Inf);
+    skel = bwmorph(imb, 'thin', Inf);
+    skel = imclearborder(skel);
+    skel = bwmorph(bwareaopen(skel, 10), 'thin', Inf);
 
     %imshow(skel);
 
