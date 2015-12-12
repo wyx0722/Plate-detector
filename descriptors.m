@@ -6,5 +6,10 @@ function[output] = descriptors(img)
     d4 = solidity(img);
     d5 = vskel(img);
     h = HOG(img)';
-    output = horzcat(d1,d2,d3,d4,d5,h);
+    m = invmoments(img)*1000;
+    %si = sift(img);
+    %haaf = kp_harrislaplace(img);
+    %output = horzcat(d1,d2,d3,d4,d5,h);
+    %z = zernike(img);
+    output = horzcat(d1,d2,d3,d4,d5,m,h);
 end

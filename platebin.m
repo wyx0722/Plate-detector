@@ -1,4 +1,6 @@
-function[imb] = platebin(img,pasos)
+function[imb] = platebin(img,pasos,blk)
+    %pasos defineix el tamany de la finestra d'on treuras el threshold
+    %blk defineix el tamany de la zona que se li aplicara un mateix threshold
     
     %{
     [h,w] = size(img);
@@ -30,7 +32,7 @@ function[imb] = platebin(img,pasos)
     imb = max(imb(:,:),imd(:,:));
     %}
        
-    blk = 7;
+    %blk = 7;
     pasos = pasos+blk;   
     %imshow(imb);
     

@@ -2,9 +2,14 @@ function[hof] = holes(img)
     hof = [];
     ho = 0;
     [w,h] = size(img);
+    
     im = rgb2gray(img);
     g = graythresh(im);
     imb = im2bw(im,g);
+    
+    
+    %imb = platebin(img,3,1);
+    
     imb = imclearborder(imb);
     %imshow (imb)
     %pause
@@ -21,7 +26,7 @@ function[hof] = holes(img)
       end
     end
     
-    hof = [ho,ho,ho];
+    hof = ho;
     
     %pause
     %hold offs

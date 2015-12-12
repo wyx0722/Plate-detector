@@ -1,9 +1,11 @@
 function count = vskel(img)
     %img = imread('letters/7.png');
-
+    
     im = rgb2gray(img);
     g = graythresh(im);
     imb = ~im2bw(im,g);
+    
+    %imb = ~platebin(img,3,3);
     %imb = imclearborder(~imb);
     %imb = imopen(imb, strel('square', 3)); 
     

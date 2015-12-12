@@ -8,16 +8,17 @@ for file = files'
     for i = 1:size(lrect)
         c = imcrop(img,lrect(i,:));
         b = characters(c);
+        imshow(c)
         if (size(b,1) ~= 0)
             %figure, title(file.name)
-            imshow(platebin(c,3))
             %hold on
             for p = 1:size(b,1)
                 rectangle('position', b(p,:), 'Edgecolor', 'r') 
             end
             hold off
-            pause
+            pause(2)
         end
+        pause(1)
     end    
 end
 %}
@@ -29,6 +30,7 @@ lrect = window(img);
 for i = 1:size(lrect)
     c = imcrop(img,lrect(i,:));
     b = characters(c);
+    if (size(b,1) ~= 0)
     imshow(c);
     hold on
     for p = 1:size(b,1)
@@ -36,6 +38,7 @@ for i = 1:size(lrect)
     end
     hold off
     pause
+    end
 end    
 %}
 
