@@ -32,13 +32,13 @@ function[b] = characters(img)
             %(a(i, 3)*3) >= a(i, 4)
             
             if (ww/hh) < 0.3
-                hal = cp(:,1:(ww/2));
-                har = cp(:,(ww/2):end);
+                hal = cp(:,1:round(ww/2));
+                har = cp(:,round(ww/2):end);
                 [hr wr] = size(har);
                 whr = (hr*wr);
                 per = sum(har(:))/whr;
                 pel = sum(hal(:))/whr;
-                if (per < 0.90) && (pel < 0.35)
+                if (per < 0.90) && (pel < 0.40)
                     b(j, :) = [(a(i,1)-1) (a(i,2)-1) (a(i,3)+2) (a(i,4)+2)];
                     j = j + 1;     
                 end
@@ -57,8 +57,8 @@ function cond = isCharacter(img, a)
     cp = imcrop(img,a(1,:));
     [h,w] = size(cp);
     
-    uh = cp(1:h/2,:,:);
-    dh = cp(h/2:end,:,:);
+    uh = cp(round(1:h/2),:,:);
+    dh = cp(round(h/2:end),:,:);
     
     au = sum(uh(:, :, 1) <= 110 & uh(:, :, 3) <= 110 & uh(:, :, 3) <= 110);
     ad = sum(dh(:, :, 1) <= 110 & dh(:, :, 3) <= 110 & dh(:, :, 3) <= 110);

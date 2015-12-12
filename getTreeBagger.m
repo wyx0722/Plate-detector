@@ -101,6 +101,45 @@ function[c] = getTreeBagger()
         j = j+1;
         imshow(i_gaus);
     end
+    
+    
+    
+    %pixelated characters
+    for file = files'
+        img = imread(strcat('letters/',file.name));
+        w_gaus = fspecial('gaussian',9, 2);
+        i_gaus = imfilter(img, w_gaus);
+       	i_gaus = imresize(i_gaus, [15 5]);
+        aux = descriptors(i_gaus);
+        desc(j,:) = aux;
+        j = j+1;
+        imshow(i_gaus);
+    end
+    
+    for file = files'
+        img = imread(strcat('l/',file.name));
+        w_gaus = fspecial('gaussian',9, 2);
+        i_gaus = imfilter(img, w_gaus);
+        i_gaus = imresize(i_gaus, [15 5]);
+        aux = descriptors(i_gaus);
+        desc(j,:) = aux;
+        j = j+1;
+        imshow(i_gaus);
+    end
+    
+    for file = files'
+        img = imread(strcat('r/',file.name));
+        w_gaus = fspecial('gaussian',9, 2);
+        i_gaus = imfilter(img, w_gaus);
+        i_gaus = imresize(i_gaus, [15 7]);
+        aux = descriptors(i_gaus);
+        desc(j,:) = aux;
+        j = j+1;
+        imshow(i_gaus);
+    end
+    
+    
+    
 
     %{
     for p = 1:30
@@ -111,7 +150,7 @@ function[c] = getTreeBagger()
       desc(p,:) = aux;
     end
     %}
-    ind = vertcat(index,index,index,index,index,index,index,index,index);
+    ind = vertcat(index,index,index,index,index,index,index,index,index,index,index,index);
     c = TreeBagger(500,desc,ind);
 
     %predict(c,descriptors(imread('letters/c.png')))
