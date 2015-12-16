@@ -24,7 +24,7 @@ end
 %}
 
 %{
-img = imread('examples/1222HMC.jpg');
+img = imread('examples/5657GLM.jpg');
 lrect = window(img);  
 
 for i = 1:size(lrect)
@@ -32,6 +32,7 @@ for i = 1:size(lrect)
     b = characters(c);
     if (size(b,1) ~= 0)
     imshow(c);
+    pause
     hold on
     for p = 1:size(b,1)
         rectangle('position', b(p,:), 'Edgecolor', 'r') 

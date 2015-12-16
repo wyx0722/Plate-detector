@@ -12,9 +12,10 @@ function phi = invmoments(F)
 %   $Revision: 1.5 $  $Date: 2003/11/21 14:39:19 $
 
 F = rgb2gray(F);
-
 %[h w] = size(F);
 %F = platebin(F,round(h*0.12),round(h*0.04));
+%F = imopen(F, strel('square', round(h*0.04)));
+
 
 F = double(F);
 phi = compute_phi(compute_eta(compute_m(F)));

@@ -10,21 +10,31 @@ function[output] = formatPredict(i, resprob)
     end
     %}
     
+    mitja = 0;
 
     if i <= 4 
         for outindex = 1:10
+            mitja = mitja + resprob(outindex);
             if resprob(outindex) >= scoreMax
                 maxindex = outindex;
                 scoreMax = resprob(outindex);
             end
-        end    
+        end
+        mitja = mitja/10 * 1.02;
     else 
         for outindex = 11:30
+            mitja = mitja + resprob(outindex);
             if resprob(outindex) >= scoreMax
                 maxindex = outindex;
                 scoreMax = resprob(outindex);
             end
-        end    
+        end
+        mitja = mitja/20 * 1.02;
     end
-    output = index(maxindex);
+    
+    if (mitja > scoreMax || scoreMax < 0.1)
+        output = '*';
+    else
+        output = index(maxindex);
+    end
 end

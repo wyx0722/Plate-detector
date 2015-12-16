@@ -23,6 +23,7 @@ function main(path,tb)
                 %pause
             end
             h
+            pause
             %figure('name',h);
             %imshow(c);
             hold off
